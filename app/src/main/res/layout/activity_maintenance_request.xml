@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_green"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:elevation="0dp">
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#1CA377"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/back_button"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_back"
+                        android:contentDescription="Back"
+                        app:tint="@android:color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Maintenance Request"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium" />
+                </LinearLayout>
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- Content -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Issue Description Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Issue Description"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="#1CA377"
+                        android:fontFamily="sans-serif-medium"
+                        android:drawablePadding="8dp"
+                        app:drawableStartCompat="@drawable/ic_description" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:boxStrokeColor="#1CA377"
+                        app:hintTextColor="#1CA377">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/issueDescriptionInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Describe the issue in detail"
+                            android:inputType="textMultiLine"
+                            android:minLines="3"
+                            android:gravity="top|start"
+                            android:background="@android:color/white" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Urgency Level Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Urgency Level"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="#1CA377"
+                        android:fontFamily="sans-serif-medium"
+                        android:drawablePadding="8dp" />
+
+                    <RadioGroup
+                        android:id="@+id/urgencyLevelGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp">
+
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/lowUrgency"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Low - Not urgent, can be fixed when convenient"
+                            android:textColor="#000000"
+                            android:padding="12dp"
+                            android:buttonTint="#1CA377" />
+
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/mediumUrgency"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Medium - Needs attention soon"
+                            android:textColor="#000000"
+                            android:padding="12dp"
+                            android:buttonTint="#1CA377" />
+
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/highUrgency"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="High - Urgent, needs immediate attention"
+                            android:textColor="#000000"
+                            android:padding="12dp"
+                            android:buttonTint="#1CA377" />
+                    </RadioGroup>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Images Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Images Attached"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="#1CA377"
+                        android:fontFamily="sans-serif-medium"
+                        android:drawablePadding="8dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:gravity="center"
+                        android:layout_marginTop="8dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="0dp"
+                            android:layout_height="120dp"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="2dp">
+
+                            <ImageView
+                                android:id="@+id/image1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@android:drawable/ic_menu_gallery"
+                                android:scaleType="centerCrop"
+                                android:background="#F5F5F5"/>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="0dp"
+                            android:layout_height="120dp"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="2dp">
+
+                            <ImageView
+                                android:id="@+id/image2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                android:src="@android:drawable/ic_menu_gallery"
+                                android:background="#F5F5F5"/>
+                        </com.google.android.material.card.MaterialCardView>
+                    </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/addImageButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Add Images"
+                        android:layout_marginTop="8dp"
+                        app:cornerRadius="8dp"
+                        android:padding="12dp"
+                        app:icon="@drawable/ic_add_photo"
+                        app:iconGravity="textStart"
+                        app:iconPadding="8dp"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        app:strokeColor="#1CA377"
+                        android:textColor="#1CA377"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Submit Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/submitButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Submit Request"
+                android:textSize="16sp"
+                android:textColor="#ffffff"
+                android:padding="16dp"
+                app:cornerRadius="12dp"
+                app:elevation="4dp"
+                android:backgroundTint="#1CA377"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
